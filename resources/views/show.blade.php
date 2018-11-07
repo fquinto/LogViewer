@@ -34,7 +34,11 @@
                         <thead>
                             <tr>
                                 <td>File path :</td>
-                                <td colspan="5">{{ $log->getPath() }}</td>
+                                <td colspan="5">
+                                @foreach ($log->getPath() as $file)
+                                    {{ $file }}<br>
+                                @endforeach
+                                </td>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,15 +49,21 @@
                                 </td>
                                 <td>Size :</td>
                                 <td>
-                                    <span class="label label-primary">{{ $log->size() }}</span>
+                                    @foreach ($log->size() as $size)
+                                        <span class="label label-primary">{{ $size }}</span>
+                                    @endforeach
                                 </td>
                                 <td>Created at :</td>
                                 <td>
-                                    <span class="label label-primary">{{ $log->createdAt() }}</span>
+                                    @foreach ($log->createdAt() as $cre)
+                                        <span class="label label-primary">{{ $cre }}</span>
+                                    @endforeach
                                 </td>
                                 <td>Updated at :</td>
                                 <td>
-                                    <span class="label label-primary">{{ $log->updatedAt() }}</span>
+                                    @foreach ($log->updatedAt() as $upd)
+                                        <span class="label label-primary">{{ $upd }}</span>
+                                    @endforeach
                                 </td>
                             </tr>
                         </tbody>
